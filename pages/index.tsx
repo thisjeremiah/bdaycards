@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import { Card } from '../components/Card/Card'
+import { Envelope } from '../components/Card/Envelope'
 import { ImageSticker } from '../components/Card/Sticker'
 import { Stamp } from '../components/Card/Stamp'
 // import { Sticker } from '../components/Card/Sticker'
@@ -30,7 +31,7 @@ export default function Home() {
           backgroundImage: 'linear-gradient(315deg, #fce043 0%, #fb7ba2 74%)',
         }}
       >
-        <Card
+        <Envelope
           className="bg-purple-300 text-white"
           message={message}
           onBack={
