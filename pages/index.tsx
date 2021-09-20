@@ -1,8 +1,9 @@
 import Head from 'next/head'
-import { Card } from '../components/Card/Card'
-import { Envelope } from '../components/Card/Envelope'
-import { ImageSticker } from '../components/Card/Sticker'
-import { Stamp } from '../components/Card/Stamp'
+import { CardCollection } from '../components/CardCollection'
+// import { Card } from '../components/Card/Card'
+// import { Envelope } from '../components/Card/Envelope'
+// import { ImageSticker } from '../components/Card/Sticker'
+// import { Stamp } from '../components/Card/Stamp'
 // import { Sticker } from '../components/Card/Sticker'
 
 const message = `***,
@@ -13,6 +14,18 @@ const message = `***,
 
 ***,
 ********`
+
+// <Card
+// className="bg-purple-300 text-white"
+// message={message}
+// onBack={
+// <>
+// <Stamp name="hamilton" />
+// <ImageSticker name="pug" style={{ top: 100, left: 550 }} />
+// <ImageSticker name="tea" style={{ top: -30, left: 400 }} />
+// </>
+// }
+// />
 
 export default function Home() {
   return (
@@ -52,17 +65,7 @@ export default function Home() {
           backgroundImage: 'linear-gradient(315deg, #fce043 0%, #fb7ba2 74%)',
         }}
       >
-        <Card
-          className="bg-purple-300 text-white"
-          message={message}
-          onBack={
-            <>
-              <Stamp name="hamilton" />
-              <ImageSticker name="pug" style={{ top: 100, left: 550 }} />
-              <ImageSticker name="tea" style={{ top: -30, left: 400 }} />
-            </>
-          }
-        />
+        <CardCollection />
       </main>
 
       <footer></footer>

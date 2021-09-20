@@ -1,5 +1,6 @@
 import classnames from 'classnames'
 import { useCallback, useState } from 'react'
+import { paperStyle } from '../utils'
 
 type CardProps = {
   className?: string // background color, text color
@@ -7,19 +8,6 @@ type CardProps = {
   onFront?: React.ReactNode
   onBack?: React.ReactNode
 }
-
-const paperPatterns = {
-  default: 'paper-2',
-  fibers: 'light-paper-fibers',
-  canvas: 'beige-paper',
-  texture: 'cream-paper',
-  board: 'white-paperboard',
-  painterly: 'textured-paper',
-  rice: 'rice-paper-2',
-  natural: 'natural-paper',
-}
-
-const paperPattern = paperPatterns['natural']
 
 export function Card(props: CardProps) {
   const [message, setMessage] = useState(props.message)
@@ -36,8 +24,8 @@ export function Card(props: CardProps) {
   )
 
   const cardStyle = {
-    backgroundImage: `url("https://www.transparenttextures.com/patterns/${paperPattern}.png")`,
     backfaceVisibility: 'hidden',
+    ...paperStyle,
   } as const
 
   const front = (
