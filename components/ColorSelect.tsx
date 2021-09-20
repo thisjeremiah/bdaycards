@@ -12,7 +12,7 @@ export function ColorSelect() {
   const palette = (
     <div className={`flex gap-3 flex-col bg-white p-4 rounded-2xl shadow-2xl`}>
       {colors.map((color) => (
-        <div className="flex gap-3">
+        <div key={color} className="flex gap-3">
           {levels.map((level) => (
             <div
               key={color + level}

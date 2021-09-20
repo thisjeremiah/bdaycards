@@ -28,8 +28,11 @@ export function Card(props: CardProps) {
 
   const front = (
     <div className={cardClassName} style={cardStyle}>
-      {props.message.split('\n').map((line) => (
-        <p className="text-xl bg-transparent text-white w-full h-full resize-none outline-none">
+      {props.message.split('\n').map((line, i) => (
+        <p
+          key={i}
+          className="text-xl bg-transparent text-white w-full h-full resize-none outline-none"
+        >
           {line}&nbsp;
         </p>
       ))}
