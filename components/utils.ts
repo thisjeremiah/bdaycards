@@ -1,4 +1,4 @@
-const paperPatterns = {
+export const paperPatterns = {
   default: 'paper-2',
   fibers: 'light-paper-fibers',
   canvas: 'beige-paper',
@@ -9,8 +9,8 @@ const paperPatterns = {
   natural: 'natural-paper',
 }
 
-const paperPattern = paperPatterns['natural']
-
-export const paperStyle = {
-  backgroundImage: `url("https://www.transparenttextures.com/patterns/${paperPattern}.png")`,
+export function paperStyle(key: keyof typeof paperPatterns) {
+  return {
+    backgroundImage: `url("https://www.transparenttextures.com/patterns/${paperPatterns[key]}.png")`,
+  }
 }

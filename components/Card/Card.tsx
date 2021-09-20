@@ -10,33 +10,29 @@ type CardProps = {
 }
 
 export function Card(props: CardProps) {
-  const [message, setMessage] = useState(props.message)
   const [flipped, setFlipped] = useState(false)
-  const [disabled, setDisabled] = useState(false)
 
   const onClickCard = useCallback(() => {
     setFlipped((f) => !f)
   }, [])
 
   const cardClassName = classnames(
-    'absolute w-full h-full p-16 rounded-2xl shadow-2xl',
+    'absolute w-full h-full p-4 rounded-2xl shadow-2xl',
     props.className,
   )
 
   const cardStyle = {
     backfaceVisibility: 'hidden',
-    ...paperStyle,
+    ...paperStyle('texture'),
   } as const
 
   const front = (
     <div className={cardClassName} style={cardStyle}>
-      <textarea
-        className="text-3xl bg-transparent w-full h-full resize-none outline-none"
-        value={message}
-        onClick={(e) => e.stopPropagation()}
-        onChange={({ target }) => setMessage(target.value)}
-        disabled={disabled}
-      />
+      {props.message.split('\n').map((line) => (
+        <p className="text-xl bg-transparent text-white w-full h-full resize-none outline-none">
+          {line}&nbsp;
+        </p>
+      ))}
       <div className="relative w-full h-full">{props.onFront}</div>
     </div>
   )
@@ -51,7 +47,7 @@ export function Card(props: CardProps) {
   )
 
   return (
-    <div className="w-[800px] h-[600px]" style={{ perspective: 600 }}>
+    <div className="w-[325px] h-[250px]" style={{ perspective: 600 }}>
       <div
         onClick={onClickCard}
         className="w-full h-full relative cursor-pointer"
