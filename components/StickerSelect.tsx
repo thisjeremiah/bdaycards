@@ -19,7 +19,7 @@ type StickerSelectProps = {
 
 export function StickerSelect(props: StickerSelectProps) {
   return (
-    <div className="flex w-[500px] flex-wrap items-center justify-center gap-5">
+    <div className="flex w-[300px] flex-wrap items-center justify-center gap-5">
       {stickers.map((sticker) => (
         <div
           key={sticker}

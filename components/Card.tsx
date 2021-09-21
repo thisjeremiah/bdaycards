@@ -23,6 +23,7 @@ export function Card({ card }: CardProps) {
 
   const cardStyle = {
     backfaceVisibility: 'hidden',
+    '-webkit-backface-visibility': 'hidden',
     ...paperStyle('texture'),
   } as const
 

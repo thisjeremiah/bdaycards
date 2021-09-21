@@ -18,7 +18,7 @@ type StampSelectProps = {
 
 export function StampSelect(props: StampSelectProps) {
   return (
-    <div className="flex w-[500px] flex-wrap items-center justify-center gap-5">
+    <div className="flex w-[400px] flex-wrap items-center justify-center gap-5">
       {stamps.map((stamp) => (
         <div
           key={stamp}
