@@ -1,13 +1,13 @@
 import classnames from 'classnames'
-import { useState } from 'react'
 
-export function ColorSelect() {
+type ColorSelectProps = {
+  value?: string
+  onChangeValue?(value: string): void
+}
+
+export function ColorSelect(props: ColorSelectProps) {
   const colors = ['gray', 'yellow', 'green', 'blue', 'indigo', 'purple', 'pink']
   const levels = [200, 300, 400, 500, 600, 700, 800]
-  const [currentColor, setCurrentColor] = useState({
-    color: 'yellow',
-    level: 200,
-  })
 
   const palette = (
     <div className={`flex gap-3 flex-col bg-white p-4 rounded-2xl shadow-2xl`}>
@@ -18,9 +18,9 @@ export function ColorSelect() {
               key={color + level}
               className={classnames(
                 'rounded-full w-5 h-5 cursor-pointer',
-                bgClassname(color, level),
+                `bg-${color}-${level}`,
               )}
-              onClick={() => setCurrentColor({ color, level })}
+              onClick={() => props.onChangeValue(`${color}-${level}`)}
             />
           ))}
         </div>
@@ -31,24 +31,15 @@ export function ColorSelect() {
   return (
     <div className="">
       <div className="flex bg-white rounded-2xl h-10 p-3 gap-3 items-center justify-center">
-        <p className="text-gray-700 font-bold select-none shadow-2xl">
+        <p className="text-black font-medium select-none shadow-2xl">
           Current Color
         </p>
-        <div
-          className={`rounded-full w-5 h-5 ${bgClassname(
-            currentColor.color,
-            currentColor.level,
-          )}`}
-        />
+        <div className={`rounded-full w-5 h-5 bg-${props.value}`} />
       </div>
       <div className="h-3" />
       {palette}
     </div>
   )
-
-  function bgClassname(color: string, level: number) {
-    return `bg-${color}-${level}`
-  }
 }
 
 function colorClassNames() {

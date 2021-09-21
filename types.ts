@@ -2,6 +2,7 @@ export type ICard = {
   id: string
   cardColor: string
   cardMessage: string
+  messageColor: string
   envelopeColor: string
   recipient: string
   sender: string
