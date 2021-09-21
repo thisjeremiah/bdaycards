@@ -5,10 +5,12 @@ import {
   UserIcon,
   MailIcon,
   MailOpenIcon,
+  StarIcon,
 } from '@heroicons/react/outline'
 import { Input } from '../Input'
 import { TextAreaInput } from '../TextAreaInput'
 import { useCardCreateStore } from './cardCreateStore'
+import { StickerSelect } from '../StickerSelect'
 
 // 🥳
 // 🙌
@@ -26,7 +28,7 @@ export function CardCreateFormStep(props: { step: string }) {
       return (
         <Center>
           <img
-            className="select-none w-[250px] h-[250px] rounded-full"
+            className="bg-gray-200 select-none w-[250px] h-[250px] rounded-full"
             src={'/sarah.jpeg'}
           />
           <div className="h-5" />
@@ -118,11 +120,13 @@ export function CardCreateFormStep(props: { step: string }) {
     case '8-stickers':
       return (
         <Center>
-          <PencilAltIcon className="text-white w-10 h-10" />
+          <StarIcon className="text-white w-10 h-10" />
           <div className="h-3" />
           <p className="text-white text-2xl w-[250px] text-center select-none">
-            What stickers would you like to add?
+            What stickers would you like to use? (0-3)
           </p>
+          <div className="h-5" />
+          <StickerSelect />
         </Center>
       )
     case '9-stamp':

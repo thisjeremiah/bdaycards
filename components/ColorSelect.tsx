@@ -32,7 +32,7 @@ export function ColorSelect(props: ColorSelectProps) {
     <div className="">
       <div className="flex bg-white rounded-2xl h-10 p-3 gap-3 items-center justify-center">
         <p className="text-black font-medium select-none shadow-2xl">
-          Current Color
+          Selected Color
         </p>
         <div className={`rounded-full w-5 h-5 bg-${props.value}`} />
       </div>
