@@ -14,8 +14,12 @@ function useCards() {
     () =>
       onSnapshot(collection(getFirestore(app), 'cards'), (snapshot) => {
         if (snapshot.docs) {
+          const result = snapshot.docs.map((doc) => ({
+            id: doc.id,
+            ...doc.data(),
+          }))
           // @ts-ignore
-          setResult(snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() })))
+          setResult(result)
         }
       }),
     [],
@@ -43,25 +47,30 @@ export function CardCollection() {
   }
 
   return (
-    <div className="flex gap-5 flex-wrap items-center justify-center w-full h-screen">
-      {cards.map((card) => (
-        <div
-          key={card.id}
-          style={paperStyle('default')}
-          onClick={() => setSelectedCard(card)}
-          className={classnames(
-            `bg-${card.cardColor}`,
-            'flex w-[150px] h-[120px] rounded-2xl p-2 text-center items-center shadow-2xl cursor-pointer',
-            'transition duration-300 hover:scale-110',
-          )}
-        >
-          <p
-            className={`text-${card.messageColor} text-center w-full font-medium text-lg text-opacity-74 drop-shadow select-none`}
+    <>
+      <p className="text-white text-center text-2xl font-medium py-8">
+        Happy Birthday, Sarah! 🎂
+      </p>
+      <div className="flex gap-5 flex-wrap items-center justify-center w-full h-full">
+        {cards.map((card) => (
+          <div
+            key={card.id}
+            style={paperStyle('default')}
+            onClick={() => setSelectedCard(card)}
+            className={classnames(
+              `bg-${card.cardColor}`,
+              'flex w-[150px] h-[120px] rounded-2xl p-2 text-center items-center shadow-2xl cursor-pointer',
+              'transition duration-300 hover:scale-110',
+            )}
           >
-            {card.sender}
-          </p>
-        </div>
-      ))}
-    </div>
+            <p
+              className={`text-${card.messageColor} text-center w-full font-medium text-lg text-opacity-74 drop-shadow select-none`}
+            >
+              from {card.sender}
+            </p>
+          </div>
+        ))}
+      </div>
+    </>
   )
 }
