@@ -35,14 +35,17 @@ export function Card({ card }: CardProps) {
     <div className={cardClassName} style={cardStyle}>
       <span className="w-full h-full">
         {card.message.split('\n').map((line, i) => (
-          <p key={i} className="text-sm bg-transparent select-none">
+          <p
+            key={i}
+            className="text-sm bg-transparent select-none whitespace-pre-wrap"
+          >
             {line}&nbsp;
           </p>
         ))}
       </span>
       {sticker1 && (
         <Sticker
-          className="absolute top-[15px] right-3 rotate-[15deg]"
+          className="absolute bottom-[15px] right-3 rotate-[-15deg]"
           src={sticker1}
         />
       )}
