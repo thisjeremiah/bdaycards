@@ -6,6 +6,10 @@ const stickers = [
   '/stickers/isabelle.png',
   '/stickers/tom-nook.png',
   '/stickers/tea.png',
+  '/stickers/leaf.png',
+  '/stickers/pikachu.png',
+  '/stickers/timothee.png',
+  '/stickers/cherry-blossom.png',
 ]
 
 type StickerSelectProps = {

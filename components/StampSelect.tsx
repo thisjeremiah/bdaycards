@@ -5,6 +5,10 @@ const stamps = [
   '/stamps/starwars.jpg',
   '/stamps/starwars1.jpg',
   '/stamps/hamilton.jpg',
+  '/stamps/lilo-and-stitch.jpg',
+  '/stamps/pride.jpg',
+  '/stamps/scott-pilgrim.jpg',
+  '/stamps/disneyland.jpg',
 ]
 
 type StampSelectProps = {

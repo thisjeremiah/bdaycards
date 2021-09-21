@@ -118,7 +118,7 @@ export function CardCreateFormStep(props: { step: string }) {
           <PencilAltIcon className="w-10 h-10 text-white" />
           <div className="h-3" />
           <p className="text-white text-2xl w-[250px] text-center select-none">
-            What would you like to say?
+            What would you like it to say?
           </p>
           <div className="h-5" />
           <TextAreaInput
