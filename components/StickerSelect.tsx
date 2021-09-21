@@ -1,24 +1,43 @@
 import classnames from 'classnames'
-import { Sticker } from './Card/Sticker'
+import { Sticker } from './Sticker'
 
-const stickers = ['pug', 'isabelle', 'tom-nook']
+const stickers = [
+  '/stickers/pug.png',
+  '/stickers/isabelle.png',
+  '/stickers/tom-nook.png',
+  '/stickers/tea.png',
+]
 
 type StickerSelectProps = {
   value?: string[]
-  onChangeValue(value: string): void
+  onChangeValue(value: string[]): void
 }
 
 export function StickerSelect(props: StickerSelectProps) {
   return (
-    <div className="flex w-full items-center justify-center gap-5">
+    <div className="flex w-[500px] flex-wrap items-center justify-center gap-5">
       {stickers.map((sticker) => (
         <div
           key={sticker}
-          className={classnames('p-3 rounded-2xl', 'bg-white')}
+          className={classnames(
+            'p-3 rounded-2xl cursor-pointer bg-opacity-50',
+            selected(sticker) && 'bg-white',
+          )}
+          onClick={() => {
+            if (selected(sticker)) {
+              props.onChangeValue(props.value.filter((x) => x !== sticker))
+            } else if (props.value.length < 3) {
+              props.onChangeValue([...props.value, sticker])
+            }
+          }}
         >
-          <Sticker name={sticker as any} className="w-[50px]" />
+          <Sticker src={sticker as any} className="w-[50px]" />
         </div>
       ))}
     </div>
   )
+
+  function selected(sticker: string) {
+    return props.value.includes(sticker)
+  }
 }

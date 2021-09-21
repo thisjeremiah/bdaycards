@@ -12,9 +12,9 @@ type Store = {
   envelopeColor: string
   recipient: string
   sender: string
-  stampImage: string
-  update(partial: Partial<Omit<ICard, 'id' | 'stickers'>>): void
-  // stickers: Array<ISticker>
+  stamp: string
+  stickers: string[]
+  update(partial: Partial<Omit<ICard, 'id'>>): void
 }
 
 export const useCardCreateStore = create<Store>((set) => ({
@@ -40,15 +40,7 @@ export const useCardCreateStore = create<Store>((set) => ({
   envelopeColor: 'bg-purple-300',
   recipient: 'Sarah Racker',
   sender: '',
-  stampImage: '/stamps/hamilton.jpg',
+  stamp: '/stamps/hamilton.jpg',
+  stickers: [],
   update: (partial) => set((state) => ({ ...state, ...partial })),
 }))
-
-// export type ISticker = {
-// image: string
-// location: ILocation
-// x: number
-// y: number
-// }
-
-// type ILocation = 'card_front' | 'card_back' | 'envelope_front' | 'envelope_back'

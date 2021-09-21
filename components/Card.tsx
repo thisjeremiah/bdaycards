@@ -1,6 +1,6 @@
 import classnames from 'classnames'
 import { useCallback, useState } from 'react'
-import { paperStyle } from '../utils'
+import { paperStyle } from './utils'
 
 type CardProps = {
   className?: string // background color, text color

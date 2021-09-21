@@ -11,6 +11,7 @@ import { Input } from '../Input'
 import { TextAreaInput } from '../TextAreaInput'
 import { useCardCreateStore } from './cardCreateStore'
 import { StickerSelect } from '../StickerSelect'
+import { StampSelect } from '../StampSelect'
 
 // 🥳
 // 🙌
@@ -78,7 +79,7 @@ export function CardCreateFormStep(props: { step: string }) {
           <MailIcon className="text-white w-10 h-10" />
           <div className="h-3" />
           <p className="text-white text-2xl w-[250px] text-center select-none">
-            What color is the card?
+            What color should the card be?
           </p>
           <div className="h-4" />
           <ColorSelect
@@ -93,7 +94,7 @@ export function CardCreateFormStep(props: { step: string }) {
           <PencilIcon className="text-white w-10 h-10" />
           <div className="h-3" />
           <p className="text-white text-2xl w-[250px] text-center select-none">
-            What color is the message?
+            What color should the message be?
           </p>
           <div className="h-4" />
           <ColorSelect
@@ -123,10 +124,13 @@ export function CardCreateFormStep(props: { step: string }) {
           <StarIcon className="text-white w-10 h-10" />
           <div className="h-3" />
           <p className="text-white text-2xl w-[250px] text-center select-none">
-            What stickers would you like to use? (0-3)
+            What stickers would you like to use? (Pick up to 3)
           </p>
           <div className="h-5" />
-          <StickerSelect value={[]} onChangeValue={() => null} />
+          <StickerSelect
+            value={store.stickers}
+            onChangeValue={(stickers) => store.update({ stickers })}
+          />
         </Center>
       )
     case '9-stamp':
@@ -137,6 +141,11 @@ export function CardCreateFormStep(props: { step: string }) {
           <p className="text-white text-2xl w-[250px] text-center select-none">
             Pick a stamp to use.
           </p>
+          <div className="h-5" />
+          <StampSelect
+            value={store.stamp}
+            onChangeValue={(stamp) => store.update({ stamp })}
+          />
         </Center>
       )
     case '10-preview':

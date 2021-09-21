@@ -1,11 +1,13 @@
-type StampName = 'starwars' | 'starwars1' | 'hamilton'
+// 'starwars' | 'starwars1' | 'hamilton'
 
-export function Stamp(props: { name: StampName }) {
+export function Stamp(props: { src: string; pattern?: boolean }) {
   return (
     <div className="relative">
-      <div className="absolute left-[-20px] top-[4px]">
-        <StampPattern />
-      </div>
+      {props.pattern && (
+        <div className="absolute left-[-20px] top-[4px]">
+          <StampPattern />
+        </div>
+      )}
       <div
         className="p-[6px] w-[90px] h-[100px]"
         style={{
@@ -18,7 +20,7 @@ export function Stamp(props: { name: StampName }) {
         <div
           className="bg-gray-200 w-full h-full"
           style={{
-            backgroundImage: `url(/stamps/${props.name}.jpg)`,
+            backgroundImage: `url(${props.src})`,
             backgroundPosition: 'center',
             backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat',

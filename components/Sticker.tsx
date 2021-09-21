@@ -1,19 +1,9 @@
 import classnames from 'classnames'
 
-// export function Sticker() {
-// return (
-// <>
-// <ImageSticker name="tom-nook" />
-// <ImageSticker name="pug" />
-// <ImageSticker name="tea" />
-// </>
-// )
-// }
-
-type StickerName = 'pug' | 'tea' | 'tom-nook' | 'isabelle'
+// 'pug' | 'tea' | 'tom-nook' | 'isabelle'
 
 export function Sticker(props: {
-  name: StickerName
+  src: string
   className?: string
   style?: any // TODO
 }) {
@@ -27,7 +17,7 @@ export function Sticker(props: {
         ...props.style,
         filter: 'drop-shadow(0 0.2rem 0.25rem rgba(0, 0, 0, 0.2))',
       }}
-      src={`/stickers/${props.name}.png`}
+      src={props.src}
     />
   )
 }

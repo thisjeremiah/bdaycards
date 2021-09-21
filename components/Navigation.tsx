@@ -1,5 +1,5 @@
 import classnames from 'classnames'
-import { ArrowSmLeftIcon, ArrowSmRightIcon } from '@heroicons/react/solid'
+import { ArrowSmLeftIcon, ArrowSmRightIcon } from '@heroicons/react/outline'
 
 type NavigationProps = {
   goNext(): void
@@ -10,7 +10,7 @@ type NavigationProps = {
 
 export function Navigation(props: NavigationProps) {
   const arrowClassName =
-    'fixed bg-white bg-opacity-75 w-10 h-10 rounded-full bottom-5 text-gray-700 cursor-pointer'
+    'fixed bg-white bg-opacity-75 w-10 h-10 rounded-full bottom-5 text-gray-700 cursor-pointer select-none'
 
   return (
     <>
