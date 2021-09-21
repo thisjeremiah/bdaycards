@@ -10,7 +10,7 @@ export function Sticker(props: {
   return (
     <img
       className={classnames(
-        'w-[150px] select-none pointer-events-none',
+        'w-[75px] select-none pointer-events-none',
         props.className,
       )}
       style={{

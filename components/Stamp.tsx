@@ -1,15 +1,23 @@
+import classnames from 'classnames'
+
 // 'starwars' | 'starwars1' | 'hamilton'
 
-export function Stamp(props: { src: string; pattern?: boolean }) {
+export function Stamp(props: {
+  src: string
+  pattern?: boolean
+  className?: string
+}) {
   return (
-    <div className="relative">
-      {props.pattern && (
-        <div className="absolute left-[-20px] top-[4px]">
-          <StampPattern />
-        </div>
-      )}
+    <div className={classnames('absolute', props.className)}>
+      <div className="relative">
+        {props.pattern && (
+          <div className="absolute left-[-16px] top-[4px]">
+            <StampPattern />
+          </div>
+        )}
+      </div>
       <div
-        className="p-[6px] w-[90px] h-[100px]"
+        className="p-[6px] w-[70px] h-[80px]"
         style={{
           backgroundImage: 'radial-gradient(transparent 50%, white 50%)',
           backgroundPosition: '-5px -5px',
@@ -46,7 +54,7 @@ function StampPattern() {
 }
 
 function PatternLine() {
-  const scale = 0.33
+  const scale = 0.25
   const color = 'rgba(0, 0, 0, 0.5)'
 
   const ellipseStyle = {

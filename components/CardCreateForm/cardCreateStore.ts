@@ -8,13 +8,15 @@ type Store = {
   goNext(): void
   cardColor: string
   messageColor: string
-  cardMessage: string
+  message: string
   envelopeColor: string
   recipient: string
   sender: string
   stamp: string
   stickers: string[]
   update(partial: Partial<Omit<ICard, 'id'>>): void
+  finished: boolean
+  finish(): void
 }
 
 export const useCardCreateStore = create<Store>((set) => ({
@@ -36,11 +38,13 @@ export const useCardCreateStore = create<Store>((set) => ({
   goNext: () => set((state) => ({ index: state.index + 1 })),
   cardColor: 'purple-300',
   messageColor: 'gray-500',
-  cardMessage: '',
+  message: '',
   envelopeColor: 'bg-purple-300',
   recipient: 'Sarah Racker',
   sender: '',
   stamp: '/stamps/hamilton.jpg',
   stickers: [],
   update: (partial) => set((state) => ({ ...state, ...partial })),
+  finished: false,
+  finish: () => set(() => ({ finished: true })),
 }))

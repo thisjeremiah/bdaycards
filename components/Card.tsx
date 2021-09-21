@@ -1,16 +1,16 @@
 import classnames from 'classnames'
 import { useCallback, useState } from 'react'
+import { ICard } from '../types'
+import { Sticker } from './Sticker'
+import { Stamp } from './Stamp'
 import { paperStyle } from './utils'
 
 type CardProps = {
-  className?: string // background color, text color
-  message: string
-  onFront?: React.ReactNode
-  onBack?: React.ReactNode
+  card: Omit<ICard, 'id'>
 }
 
-export function Card(props: CardProps) {
-  const [flipped, setFlipped] = useState(false)
+export function Card({ card }: CardProps) {
+  const [flipped, setFlipped] = useState(true)
 
   const onClickCard = useCallback(() => {
     setFlipped((f) => !f)
@@ -18,7 +18,7 @@ export function Card(props: CardProps) {
 
   const cardClassName = classnames(
     'absolute w-full h-full p-4 rounded-2xl shadow-2xl',
-    props.className,
+    `bg-${card.cardColor} text-${card.messageColor}`,
   )
 
   const cardStyle = {
@@ -26,17 +26,25 @@ export function Card(props: CardProps) {
     ...paperStyle('texture'),
   } as const
 
+  const sticker1 = card.stickers[0]
+  const sticker2 = card.stickers[1]
+  const sticker3 = card.stickers[2]
+
   const front = (
     <div className={cardClassName} style={cardStyle}>
-      {props.message.split('\n').map((line, i) => (
-        <p
-          key={i}
-          className="text-xl bg-transparent text-white w-full h-full resize-none outline-none"
-        >
-          {line}&nbsp;
-        </p>
-      ))}
-      <div className="relative w-full h-full">{props.onFront}</div>
+      <span className="w-full h-full">
+        {card.message.split('\n').map((line, i) => (
+          <p key={i} className="text-sm bg-transparent select-none">
+            {line}&nbsp;
+          </p>
+        ))}
+      </span>
+      {sticker1 && (
+        <Sticker
+          className="absolute top-[15px] right-3 rotate-[15deg]"
+          src={sticker1}
+        />
+      )}
     </div>
   )
 
@@ -45,7 +53,18 @@ export function Card(props: CardProps) {
       className={cardClassName}
       style={{ ...cardStyle, transform: 'rotateY(180deg)' }}
     >
-      <div className="relative w-full h-full">{props.onBack}</div>
+      <div className="relative w-full h-full">
+        {card.stamp && <Stamp className="right-5" pattern src={card.stamp} />}
+        {sticker2 && (
+          <Sticker className="absolute left-0 rotate-[-5deg]" src={sticker2} />
+        )}
+        {sticker3 && (
+          <Sticker
+            className="absolute left-[80px] bottom-[10px] rotate-[5deg]"
+            src={sticker3}
+          />
+        )}
+      </div>
     </div>
   )
 

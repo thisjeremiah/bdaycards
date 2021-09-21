@@ -30,11 +30,11 @@ export function ColorSelect(props: ColorSelectProps) {
 
   return (
     <div className="">
-      <div className="flex bg-white rounded-2xl h-10 p-3 gap-3 items-center justify-center">
-        <p className="text-black font-medium select-none shadow-2xl">
+      <div className="flex rounded-2xl h-10 gap-3 items-center justify-center">
+        <p className="text-white text-md font-medium select-none">
           Selected Color
         </p>
-        <div className={`rounded-full w-5 h-5 bg-${props.value}`} />
+        <div className={`rounded-full border-2 w-5 h-5 bg-${props.value}`} />
       </div>
       <div className="h-3" />
       {palette}

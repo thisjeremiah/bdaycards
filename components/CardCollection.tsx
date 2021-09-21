@@ -4,7 +4,7 @@ import { getFirestore, collection, onSnapshot } from 'firebase/firestore'
 import { useEffect, useState } from 'react'
 import { app } from '../firebase'
 import { ICard } from '../types'
-import { Card } from './Card/Card'
+import { Card } from './Card'
 import { paperStyle } from './utils'
 
 function useCards() {
@@ -31,10 +31,7 @@ export function CardCollection() {
     return (
       <>
         <div className="flex items-center justify-center w-full h-screen overflow-hidden">
-          <Card
-            className={selectedCard.cardColor}
-            message={selectedCard.cardMessage}
-          />
+          <Card card={selectedCard} />
         </div>
         <Navigation
           prev="ok"
@@ -53,12 +50,14 @@ export function CardCollection() {
           style={paperStyle('default')}
           onClick={() => setSelectedCard(card)}
           className={classnames(
-            card.envelopeColor,
+            `bg-${card.cardColor}`,
             'flex w-[150px] h-[120px] rounded-2xl p-2 text-center items-center shadow-2xl cursor-pointer',
             'transition duration-300 hover:scale-110',
           )}
         >
-          <p className="text-white font-medium text-lg text-opacity-75 drop-shadow select-none">
+          <p
+            className={`text-${card.messageColor} font-medium text-lg text-opacity-75 drop-shadow select-none`}
+          >
             {card.sender}
           </p>
         </div>

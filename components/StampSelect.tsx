@@ -26,7 +26,7 @@ export function StampSelect(props: StampSelectProps) {
             props.onChangeValue(stamp)
           }}
         >
-          <Stamp src={stamp} />
+          <Stamp className="relative" src={stamp} />
         </div>
       ))}
     </div>
