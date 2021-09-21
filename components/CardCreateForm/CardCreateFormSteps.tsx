@@ -33,7 +33,7 @@ export function CardCreateFormStep(props: { step: string }) {
           />
           <div className="h-5" />
           <p className="text-white text-2xl select-none">
-            It's Sarah's birthday! 🎂 🎈
+            {"It's Sarah's birthday! 🎂 🎈"}
           </p>
         </Center>
       )
@@ -126,7 +126,7 @@ export function CardCreateFormStep(props: { step: string }) {
             What stickers would you like to use? (0-3)
           </p>
           <div className="h-5" />
-          <StickerSelect />
+          <StickerSelect value={[]} onChangeValue={() => null} />
         </Center>
       )
     case '9-stamp':
@@ -143,7 +143,7 @@ export function CardCreateFormStep(props: { step: string }) {
       return (
         <Center>
           <p className="text-white text-2xl w-[250px] text-center select-none">
-            Here's what your card will look like.
+            {"Here's what your card will look like."}
           </p>
         </Center>
       )
