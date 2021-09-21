@@ -56,7 +56,7 @@ export function CardCollection() {
           )}
         >
           <p
-            className={`text-${card.messageColor} font-medium text-lg text-opacity-75 drop-shadow select-none`}
+            className={`text-${card.messageColor} text-center w-full font-medium text-lg text-opacity-74 drop-shadow select-none`}
           >
             {card.sender}
           </p>
