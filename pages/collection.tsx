@@ -1,5 +1,5 @@
 import { CardCollection } from '../components/CardCollection'
 
 export default function CollectionPage() {
-  return <CardCollection />
+  return <CardCollection recipient="Sarah Racker" />
 }

@@ -27,7 +27,11 @@ function useCards() {
   return result
 }
 
-export function CardCollection() {
+type CardCollectionProps = {
+  recipient: string
+}
+
+export function CardCollection(props: CardCollectionProps) {
   const cards = useCards()
   const [selectedCard, setSelectedCard] = useState<ICard | null>()
 
