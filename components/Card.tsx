@@ -39,7 +39,7 @@ export function Card({ card }: CardProps) {
             key={i}
             className="text-sm bg-transparent select-none whitespace-pre-wrap"
           >
-            {line}&nbsp;
+            {line ? line : '\n'}
           </p>
         ))}
       </span>
