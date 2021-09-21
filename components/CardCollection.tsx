@@ -32,7 +32,7 @@ type CardCollectionProps = {
 }
 
 export function CardCollection(props: CardCollectionProps) {
-  const cards = useCards()
+  const cards = useCards().filter((card) => card.recipient === props.recipient)
   const [selectedCard, setSelectedCard] = useState<ICard | null>()
 
   if (selectedCard) {
@@ -53,7 +53,7 @@ export function CardCollection(props: CardCollectionProps) {
   return (
     <>
       <p className="text-white text-center text-2xl font-medium py-8">
-        Happy Birthday, Sarah! 🎂
+        Happy Birthday, {props.recipient.split(' ')[0]}! 🎂
       </p>
       <div className="flex gap-5 flex-wrap items-center justify-center w-full h-full">
         {cards.map((card) => (
