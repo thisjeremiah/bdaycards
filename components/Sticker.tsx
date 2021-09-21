@@ -1,11 +1,9 @@
 import classnames from 'classnames'
 
-// 'pug' | 'tea' | 'tom-nook' | 'isabelle'
-
 export function Sticker(props: {
   src: string
   className?: string
-  style?: any // TODO
+  style?: any
 }) {
   return (
     <img
@@ -21,10 +19,3 @@ export function Sticker(props: {
     />
   )
 }
-
-// const star = <div className="bg-green-500">
-// </div>
-
-// function TextSticker(props: { text: string }) {
-// return <div className="">{props.text}</div>
-// }

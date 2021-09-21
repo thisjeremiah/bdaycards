@@ -55,7 +55,7 @@ export function CardCollection(props: CardCollectionProps) {
       <p className="text-white text-center text-2xl font-medium py-8">
         Happy Birthday, {props.recipient.split(' ')[0]}! 🎂
       </p>
-      <div className="flex gap-5 flex-wrap items-center justify-center w-full h-full">
+      <div className="flex gap-5 flex-wrap items-center justify-center w-full h-full pb-32 pt-4">
         {cards.map((card) => (
           <div
             key={card.id}
@@ -68,7 +68,7 @@ export function CardCollection(props: CardCollectionProps) {
             )}
           >
             <p
-              className={`text-${card.messageColor} text-center w-full font-medium text-lg text-opacity-74 drop-shadow select-none`}
+              className={`text-${card.messageColor} text-center w-full font-medium text-md text-opacity-74 drop-shadow select-none`}
             >
               from {card.sender}
             </p>

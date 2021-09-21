@@ -1,7 +1,5 @@
 import classnames from 'classnames'
 
-// 'starwars' | 'starwars1' | 'hamilton'
-
 export function Stamp(props: {
   src: string
   pattern?: boolean

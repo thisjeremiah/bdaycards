@@ -9,6 +9,8 @@ const stamps = [
   '/stamps/pride.jpg',
   '/stamps/scott-pilgrim.jpg',
   '/stamps/disneyland.jpg',
+  '/stamps/ferris-bueller.jpg',
+  '/stamps/disney-up.jpg',
 ]
 
 type StampSelectProps = {

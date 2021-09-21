@@ -21,13 +21,15 @@ const db = getFirestore(app)
 export function CardCreateFormStep(props: { step: string }) {
   const store = useCardCreateStore()
 
+  const recipient = store.recipient.split(' ')[0]
+
   if (store.finished) {
     return (
       <Center>
         <MailIcon className="w-10 h-10 text-white" />
         <div className="h-3" />
         <p className="text-white text-2xl w-[250px] text-center select-none">
-          Your card has been sent to Sarah! 🎉 🥳
+          Your card has been sent to {recipient}! 🎉 🥳
         </p>
       </Center>
     )
@@ -43,7 +45,7 @@ export function CardCreateFormStep(props: { step: string }) {
           />
           <div className="h-5" />
           <p className="text-2xl text-white select-none">
-            {"It's Sarah's birthday! 🎂 🎈"}
+            {`It's ${recipient}'s birthday! 🎂 🎈`}
           </p>
         </Center>
       )
@@ -180,7 +182,7 @@ export function CardCreateFormStep(props: { step: string }) {
           <MailIcon className="w-10 h-10 text-white" />
           <div className="h-3" />
           <p className="text-white text-2xl w-[250px] text-center select-none">
-            Send your card to Sarah!
+            Send your card to {recipient}!
           </p>
           <div className="h-5" />
           <div

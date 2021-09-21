@@ -36,16 +36,16 @@ class MyDocument extends Document {
           <meta name="msapplication-TileColor" content="#da532c" />
           <meta name="theme-color" content="#ffffff" />
         </Head>
-        <body>
+        <body
+          style={{
+            backgroundColor: '#fce043',
+            backgroundImage: 'linear-gradient(315deg, #fce043 0%, #fb7ba2 74%)',
+            backgroundAttachment: 'fixed',
+            backgroundRepeat: 'no-repeat',
+          }}
+        >
           <div className="w-full h-screen">
-            <main
-              className="w-full h-full"
-              style={{
-                backgroundColor: '#fce043',
-                backgroundImage:
-                  'linear-gradient(315deg, #fce043 0%, #fb7ba2 74%)',
-              }}
-            >
+            <main className="w-full h-full">
               <Main />
             </main>
             <footer></footer>
