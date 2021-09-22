@@ -1,5 +1,5 @@
-import { CardCollection } from '../components/CardCollection'
+import { CardBacks } from '../components/CardBacks'
 
 export default function CollectionPage() {
-  return <CardCollection recipient="Sarah Racker" />
+  return <CardBacks recipient="Sarah Racker" />
 }

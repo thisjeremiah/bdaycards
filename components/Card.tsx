@@ -61,7 +61,7 @@ export function Card({ card, disabled }: CardProps) {
       style={{ ...cardStyle, transform: 'rotateY(180deg)' }}
     >
       <div className="relative w-full h-full">
-        {false && (
+        {!disabled && (
           <div className="absolute bottom-0 right-0 text-white text-sm">
             <p>from</p>
             <p>{card.sender}</p>

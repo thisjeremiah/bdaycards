@@ -29,6 +29,7 @@ function useCards() {
 
 type CardCollectionProps = {
   recipient: string
+  disabled?: boolean
 }
 
 export function CardBacks(props: CardCollectionProps) {
@@ -40,7 +41,7 @@ export function CardBacks(props: CardCollectionProps) {
       </p>
       <div className="flex gap-5 flex-wrap items-center justify-center w-full h-full pb-32 pt-4">
         {cards.map((card) => (
-          <Card disabled key={card.id} card={card} />
+          <Card disabled={props.disabled} key={card.id} card={card} />
           // <div
           // key={card.id}
           // style={paperStyle('default')}
