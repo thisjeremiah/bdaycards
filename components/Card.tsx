@@ -62,7 +62,7 @@ export function Card({ card, disabled }: CardProps) {
     >
       <div className="relative w-full h-full">
         {!disabled && (
-          <div className="absolute bottom-0 right-0 text-white text-sm">
+          <div className="absolute bottom-0 right-0 text-white text-sm select-none">
             <p>from</p>
             <p>{card.sender}</p>
           </div>
