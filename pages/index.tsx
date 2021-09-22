@@ -1,5 +1,5 @@
-import { CardCreateForm } from '../components/CardCreateForm'
+import { CardBacks } from '../components/CardBacks'
 
 export default function HomePage() {
-  return <CardCreateForm recipient="Sarah Racker" />
+  return <CardBacks recipient="Sarah Racker" />
 }

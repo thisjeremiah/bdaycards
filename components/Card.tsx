@@ -7,13 +7,16 @@ import { paperStyle } from './utils'
 
 type CardProps = {
   card: Omit<ICard, 'id'>
+  disabled?: boolean
 }
 
-export function Card({ card }: CardProps) {
+export function Card({ card, disabled }: CardProps) {
   const [flipped, setFlipped] = useState(true)
 
   const onClickCard = useCallback(() => {
-    setFlipped((f) => !f)
+    if (!disabled) {
+      setFlipped((f) => !f)
+    }
   }, [])
 
   const cardClassName = classnames(
@@ -58,6 +61,12 @@ export function Card({ card }: CardProps) {
       style={{ ...cardStyle, transform: 'rotateY(180deg)' }}
     >
       <div className="relative w-full h-full">
+        {false && (
+          <div className="absolute bottom-0 right-0 text-white text-sm">
+            <p>from</p>
+            <p>{card.sender}</p>
+          </div>
+        )}
         {card.stamp && <Stamp className="right-5" pattern src={card.stamp} />}
         {sticker2 && (
           <Sticker className="absolute left-0 rotate-[-5deg]" src={sticker2} />
